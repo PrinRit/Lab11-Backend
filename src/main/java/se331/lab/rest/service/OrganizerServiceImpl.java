@@ -1,5 +1,6 @@
 package se331.lab.rest.service;
 
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,5 +23,15 @@ public class OrganizerServiceImpl implements OrganizerService{
     @Override
     public Page<Organizer> getOrganizer(Integer page, Integer pageSize) {
         return organizerDao.getOrganizer(PageRequest.of(page,pageSize));
+    }
+
+    @Override
+    public Organizer save(Organizer organizer) {
+        return organizerDao.save(organizer);
+    }
+
+    @Override
+    public Organizer getOrganizer(Long id) {
+        return organizerDao.getOrganizer(id);
     }
 }
